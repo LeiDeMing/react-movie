@@ -1,0 +1,7 @@
+.tc{
+    text-align: center;
+}
+
+.movie_footer,.movie_header{
+    @extend .tc;
+}
