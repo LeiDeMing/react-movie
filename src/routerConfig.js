@@ -1,7 +1,8 @@
-
+import Movie from './pages/Movie'
 const routerConfig=[
     {
-        path:''
+        path:'/movie',
+        component:Movie
     }
 ]
 
