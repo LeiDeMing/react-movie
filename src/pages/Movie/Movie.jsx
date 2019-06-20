@@ -21,6 +21,8 @@ export default class Movie extends Component {
     }
 
     textAreaPressEnter=(e)=>{
+        let csvDom=document.querySelector('#csv')
+        csvDom.style.display="none"
         this.state.csvData=null
         let arr=e.target.value.trimLeft().split('	')
         let newArr=[]
@@ -63,10 +65,14 @@ export default class Movie extends Component {
         csvData=[]
         csvData=csvData.concat(evenArr,oddArr).map((item,index)=>item.unshift(index+1+'') && item)
         csvData.unshift(['','1','2','3','4','5','6']);
-        console.log(csvData)
+        console.log(newArr)
         // csvData.unshift(['','1','2','3','4','5','6'])
         this.setState({
             csvData
+        },()=>{
+            if(newArr.length===96){
+                csvDom.style.display="block"
+            }
         })
     }
 
@@ -92,7 +98,9 @@ export default class Movie extends Component {
                     style={{width:"100%",height:"80%"}}
                     onChange={this.textAreaPressEnter}
                  />
-                 <CSVLink style={{fontSize:"40px"}} data={this.state.csvData ? this.state.csvData : ''}>LimsCsv-2-NiftyCsv</CSVLink>;
+                 <p id="csv" style={{display:"none"}}>
+                    <CSVLink style={{fontSize:"40px"}} data={this.state.csvData ? this.state.csvData : ''}>LimsCsv-2-NiftyCsv</CSVLink>
+                 </p>
             </div>
         )
     }
