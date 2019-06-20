@@ -132,8 +132,8 @@ export default class Movie extends Component {
             {
                 sheetData: pureData,
                 sheetName: 'sheet',
-                sheetFilter: ['样例号', '任务单号', '任务单行项目号', 'zcatlo', '', 'Sample id', '技术路线ID', '是否合格', 'QC', 'UR', 'GC', '胎儿性别', '胎儿浓度', 'T-score(chr21)', 'T-score(chr13)', '风险指数(chr18)', 'Z-score(chr21)', 'Z-score(chr18)', 'Z-score(chr13)', 'Test(chr21)', 'Test(chr18)', 'Test(chr13)', 'Test(性染色体)', 'Test(常染色体)', 'Test区带(重复/缺失)', 'Test位点(重复/缺失)', 'Note1', 'Note2', 'Y%', '疾病名称', 'dup/del', '位置', '大小'],
-                sheetHeader: ['样例号', '任务单号', '任务单行项目号', 'zcatlo', '', 'Sample id', '技术路线ID', '是否合格', 'QC', 'UR', 'GC', '胎儿性别', '胎儿浓度', 'T-score(chr21)', 'T-score(chr13)', '风险指数(chr18)', 'Z-score(chr21)', 'Z-score(chr18)', 'Z-score(chr13)', 'Test(chr21)', 'Test(chr18)', 'Test(chr13)', 'Test(性染色体)', 'Test(常染色体)', 'Test区带(重复/缺失)', 'Test位点(重复/缺失)', 'Note1', 'Note2', 'Y%', '疾病名称', 'dup/del', '位置', '大小']
+                sheetFilter: ['样例号', '任务单号', '任务单行项目号', 'zcatlo', '', 'Sample id', '技术路线ID', '是否合格', 'QC', 'UR', 'GC', '胎儿性别', '胎儿浓度', 'T-score(chr21)', 'T-score(chr18)', 'T-score(chr13)', '风险指数(chr21)', '风险指数(chr18)', '风险指数(chr13)', 'Z-score(chr21)', 'Z-score(chr18)', 'Z-score(chr13)', 'Test(chr21)', 'Test(chr18)', 'Test(chr13)', 'Test(性染色体)', 'Test(常染色体)', 'Test区带(重复/缺失)', 'Test位点(重复/缺失)', 'Note1', 'Note2', 'Y%', '疾病名称', 'dup/del', '位置', '大小'],
+                sheetHeader: ['样例号', '任务单号', '任务单行项目号', 'zcatlo', '', 'Sample id', '技术路线ID', '是否合格', 'QC', 'UR', 'GC', '胎儿性别', '胎儿浓度', 'T-score(chr21)', 'T-score(chr18)', 'T-score(chr13)', '风险指数(chr21)', '风险指数(chr18)', '风险指数(chr13)', 'Z-score(chr21)', 'Z-score(chr18)', 'Z-score(chr13)', 'Test(chr21)', 'Test(chr18)', 'Test(chr13)', 'Test(性染色体)', 'Test(常染色体)', 'Test区带(重复/缺失)', 'Test位点(重复/缺失)', 'Note1', 'Note2', 'Y%', '疾病名称', 'dup/del', '位置', '大小']
             }
         ];
 
