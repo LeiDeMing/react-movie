@@ -22,7 +22,7 @@ export default class Movie extends Component {
 
     textAreaPressEnter=(e)=>{
         this.state.csvData=null
-        let arr=e.target.value.split('	')
+        let arr=e.target.value.trimLeft().split('	')
         let newArr=[]
         let i=0
         let csvData=[]
@@ -90,9 +90,9 @@ export default class Movie extends Component {
                 <TextArea 
                     size={"large"}
                     style={{width:"100%",height:"80%"}}
-                    onPressEnter={this.textAreaPressEnter}
+                    onChange={this.textAreaPressEnter}
                  />
-                 <CSVLink data={this.state.csvData ? this.state.csvData : ''}>Download me</CSVLink>;
+                 <CSVLink style={{fontSize:"40px"}} data={this.state.csvData ? this.state.csvData : ''}>LimsCsv-2-NiftyCsv</CSVLink>;
             </div>
         )
     }
