@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Input } from 'antd';
-import { CSVLink, CSVDownload } from "react-csv";
+import { CSVLink } from "react-csv";
 const { TextArea } = Input;
 
 export default class Movie extends Component {

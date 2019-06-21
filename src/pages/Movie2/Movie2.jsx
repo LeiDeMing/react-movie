@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import * as XLSX from 'xlsx';
-import { Input, Button } from 'antd';
+import { Button } from 'antd';
 import ExportJsonExcel from 'js-export-excel'
-const { TextArea } = Input;
+// import * as XLSX from 'xlsx';
+
+
 export default class Movie extends Component {
     dataMask
     constructor(props) {
@@ -50,10 +51,10 @@ export default class Movie extends Component {
         fileReader.onload = event => {
             try {
                 const { result } = event.target;
-                const workbook = XLSX.read(result, { type: 'binary' });
+                const workbook = window.XLSX.read(result, { type: 'binary' });
                 for (const sheet in workbook.Sheets) {
                     if (workbook.Sheets.hasOwnProperty(sheet)) {
-                        data = data.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));
+                        data = data.concat(window.XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));
                     }
                 }
                 if (type === 'Sample id') {
