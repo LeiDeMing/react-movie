@@ -81,19 +81,19 @@ export default class Movie extends Component {
         this.dataMask.style.display = "block"
         const { sampleNifty, sampleLims } = this.state;
         let tempArr = []
-        if (!sampleNifty || !sampleLims) {
+        let _sampleLims=JSON.parse(JSON.stringify(sampleLims))
+        if (!sampleNifty || !_sampleLims) {
             alert('数据为空')
             this.dataMask.style.display = "none"
             return
         }
-        console.log(sampleNifty, sampleLims)
         for (let x = sampleNifty.length - 1; x >= 0; x--) {
-            for (let y = 0, yLen = sampleLims.length; y < yLen; y++) {
-                if (sampleNifty[x]['样例号'] === sampleLims[y]['sampleNum'] && !sampleLims[y]['isPush']) {
+            for (let y = 0, yLen = _sampleLims.length; y < yLen; y++) {
+                if (sampleNifty[x]['样例号'] === _sampleLims[y]['sampleNum'] && !_sampleLims[y]['isPush']) {
                     // sampleLims[y]['zcatlo'] = sampleNifty[x]['样本号']
-                    sampleLims[y]['样例号'] = sampleNifty[x]['样例号']
-                    sampleLims[y]['任务单号'] = sampleNifty[x]['任务单号']
-                    sampleLims[y]['任务单行项目号'] = sampleNifty[x]['任务单行项目号']
+                    _sampleLims[y]['样例号'] = sampleNifty[x]['样例号']
+                    _sampleLims[y]['任务单号'] = sampleNifty[x]['任务单号']
+                    _sampleLims[y]['任务单行项目号'] = sampleNifty[x]['任务单行项目号']
                     // if (!tempArr.length) {
                     //     tempArr.push(sampleLims[y])
                     // }
@@ -102,12 +102,18 @@ export default class Movie extends Component {
                     //         tempArr.push(sampleLims[y])
                     //     }
                     // })
-                    sampleLims[y]['isPush'] = true
-                    tempArr.push(sampleLims[y])
+                    _sampleLims[y]['isPush'] = true
+                    tempArr.push(_sampleLims[y])
                     break;
                 }
             }
         }
+        tempArr.forEach((item, index) => {
+            let _index = index + 1 + '';
+            item['excelIndex'] = _index.padStart(6, '0');
+            item['excelId'] = _index
+            item['ZGXBH'] = 'MDE'
+        })
         this.downloadExl(tempArr, 'xlms')
     }
 
@@ -116,25 +122,26 @@ export default class Movie extends Component {
         option.fileName = 'excel'
         let pureSample = []
         let pureData = []
-        data.forEach(item => {
-            if (pureSample.indexOf(item['Sample id']) === -1) {
-                pureSample.push(item['Sample id'])
-            }
-        })
-        pureSample.forEach(item => {
-            for (let x = 0; x < data.length; x++) {
-                if (item === data[x]['Sample id']) {
-                    pureData.push(data[x])
-                    break;
-                }
-            }
-        })
+        // data.forEach(item => {
+        //     if (pureSample.indexOf(item['Sample id']) === -1) {
+        //         pureSample.push(item['Sample id'])
+        //     }
+        // })
+        // pureSample.forEach(item => {
+        //     for (let x = 0; x < data.length; x++) {
+        //         if (item === data[x]['Sample id']) {
+        //             pureData.push(data[x])
+        //             break;
+        //         }
+        //     }
+        // })
+        // '技术路线ID', '是否合格',   , 'dup/del', '位置', '大小' ( hide )
         option.datas = [
             {
-                sheetData: pureData,
+                sheetData: data,
                 sheetName: 'sheet',
-                sheetFilter: ['样例号', '任务单号', '任务单行项目号', 'zcatlo', '', 'Sample id', '技术路线ID', '是否合格', 'QC', 'UR', 'GC', '胎儿性别', '胎儿浓度', 'T-score(chr21)', 'T-score(chr18)', 'T-score(chr13)', '风险指数(chr21)', '风险指数(chr18)', '风险指数(chr13)', 'Z-score(chr21)', 'Z-score(chr18)', 'Z-score(chr13)', 'Test(chr21)', 'Test(chr18)', 'Test(chr13)', 'Test(性染色体)', 'Test(常染色体)', 'Test区带(重复/缺失)', 'Test位点(重复/缺失)', 'Note1', 'Note2', 'Y%', '疾病名称', 'dup/del', '位置', '大小'],
-                sheetHeader: ['样例号', '任务单号', '任务单行项目号', 'zcatlo', '', 'Sample id', '技术路线ID', '是否合格', 'QC', 'UR', 'GC', '胎儿性别', '胎儿浓度', 'T-score(chr21)', 'T-score(chr18)', 'T-score(chr13)', '风险指数(chr21)', '风险指数(chr18)', '风险指数(chr13)', 'Z-score(chr21)', 'Z-score(chr18)', 'Z-score(chr13)', 'Test(chr21)', 'Test(chr18)', 'Test(chr13)', 'Test(性染色体)', 'Test(常染色体)', 'Test区带(重复/缺失)', 'Test位点(重复/缺失)', 'Note1', 'Note2', 'Y%', '疾病名称', 'dup/del', '位置', '大小']
+                sheetFilter: ['excelIndex', 'Sample id', 'QC', 'UR', 'GC', '胎儿性别', '胎儿浓度', 'T-score(chr21)', 'T-score(chr18)', 'T-score(chr13)', '风险指数(chr21)', '风险指数(chr18)', '风险指数(chr13)', 'Z-score(chr21)', 'Z-score(chr18)', 'Z-score(chr13)', 'Test(chr21)', 'Test(chr18)', 'Test(chr13)', 'Test(性染色体)', 'Test(常染色体)', 'Test区带(重复/缺失)', 'Test位点(重复/缺失)', 'Note1', 'Note2', 'Y%', '疾病名称', 'excelId', '任务单号', '任务单行项目号', 'ZGXBH'],
+                sheetHeader: ['excelIndex', 'Sample id', 'QC', 'UR', 'GC', '胎儿性别', '胎儿浓度', 'T-score(chr21)', 'T-score(chr18)', 'T-score(chr13)', '风险指数(chr21)', '风险指数(chr18)', '风险指数(chr13)', 'Z-score(chr21)', 'Z-score(chr18)', 'Z-score(chr13)', 'Test(chr21)', 'Test(chr18)', 'Test(chr13)', 'Test(性染色体)', 'Test(常染色体)', 'Test区带(重复/缺失)', 'Test位点(重复/缺失)', 'Note1', 'Note2', 'Y%', '疾病名称', 'excelId', '任务单号', '任务单行项目号', 'ZGXBH']
             }
         ];
 
