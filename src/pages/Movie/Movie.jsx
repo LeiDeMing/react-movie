@@ -23,7 +23,9 @@ export default class Movie extends Component {
     textAreaPressEnter=(e)=>{
         let csvDom=document.querySelector('#csv')
         csvDom.style.display="none"
-        this.state.csvData=null
+        this.setState({
+            csvData:null
+        })
         let arr=e.target.value.trimLeft().split('	')
         let newArr=[]
         let i=0
