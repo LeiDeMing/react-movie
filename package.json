@@ -2,6 +2,7 @@
   "name": "react-movie",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
   "dependencies": {
     "@babel/core": "7.4.3",
     "@svgr/webpack": "4.1.0",
@@ -69,7 +70,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "ee": "electron ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -136,11 +138,17 @@
       "react-app"
     ],
     "plugins": [
-      ["import", {
-        "libraryName": "antd",
-        "libraryDirectory": "es",
-        "style": "css" 
-      }]
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "libraryDirectory": "es",
+          "style": "css"
+        }
+      ]
     ]
+  },
+  "devDependencies": {
+    "electron": "^6.0.9"
   }
 }
