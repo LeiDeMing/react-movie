@@ -4,13 +4,13 @@ import Movie2 from './pages/Movie2'
 import Movie3 from './pages/Movie3'
 const routerConfig=[
     {
-        path:'/96LimsToNifty',
+        path:'/gufen/96LimsToNifty',
         component:Movie
     },{
-        path:'/ExcelLimmsToNifty',
+        path:'/gufen/ExcelLimmsToNifty',
         component:Movie2
     },{
-        path:'/ResultLimmsToNifty',
+        path:'/gufen/ResultLimmsToNifty',
         component:Movie3
     }/* ,{
         path:'/',
