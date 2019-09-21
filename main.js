@@ -21,7 +21,7 @@ function createWindow() {
     }
   })
   // mainWindow.webContents.openDevTools()
-  mainWindow.loadURL(path.join('file://', __dirname, '/public/index.html'))
+  mainWindow.loadURL('http://localhost:3000/#/')
 
   mainWindow.on('closed', function () {
     mainWindow = null
