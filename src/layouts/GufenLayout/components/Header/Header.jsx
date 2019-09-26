@@ -35,9 +35,9 @@ export default class Header extends PureComponent {
         const { navList } = this.state
         return (
             <div>
-                {/* <div className="movie_header">
-                    --------Header--------
-                </div> */}
+                <div className="movie_header" style={{marginTop:10}}>
+                    <a href="https://github.com/LeiDeMing/react-movie" target="blank">Get源码</a>
+                </div>
                 <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
                     {
                         navList.map((item, index) => {
