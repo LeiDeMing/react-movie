@@ -150,6 +150,7 @@
     ]
   },
   "devDependencies": {
-    "electron": "^6.0.10"
+    "electron": "^6.0.10",
+    "lodash": "^4.17.15"
   }
 }
