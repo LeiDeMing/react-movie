@@ -9,16 +9,19 @@ export default class Header extends PureComponent {
             current: '',
             videoSrc: 'leilei',
             navList: [
-                {
-                    name: '32',
-                    path: '#/qyn/?name=32'
-                },
-                {
-                    name: '33',
-                    path: '#/qyn/?name=33'
-                }
             ]
         }
+    }
+
+    componentWillMount() {
+        const { state: { navList } } = this
+        for (let x = 32; x <= 46; x++) {
+            navList.push({
+                name: x + '',
+                path: `#/qyn/?name=${x}`
+            })
+        }
+        this.setState(navList)
     }
 
     handleClick = e => {
@@ -48,7 +51,7 @@ export default class Header extends PureComponent {
                     }
                 </Menu>
                 <div className='video_content'>
-                    <video controls width="100%" src={`http://52xuanxuan.com:3389/file/qyn${videoSrc}.mp4`}></video>
+                    <video controls width="100%" src={`http://52xuanxuan.com:3389/file/QQYNN-${videoSrc}.mp4`}></video>
                 </div>
             </div>
         );
