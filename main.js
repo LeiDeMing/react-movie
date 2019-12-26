@@ -7,6 +7,7 @@ const {
   app
 } = require('electron')
 const path = require('path')
+const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -17,14 +18,19 @@ function createWindow() {
     height: 600,
     webPreferences: {
       nodeIntegration: true,
-      // devTools:true
+      devTools:true
     }
   })
-  // mainWindow.webContents.openDevTools()
-  // mainWindow.loadURL(url.format({
-  //   pathname: path.join(__dirname, './build/index.html'), protocol: 'file:', slashes: true
-  // }))
-  mainWindow.loadURL('http://localhost:3000/')
+  mainWindow.webContents.openDevTools()
+  console.log(process.env.NODE_ENV)
+  if(process.env.NODE_ENV === 'development'){
+    mainWindow.loadURL('http://localhost:3000/')
+  }else{
+    mainWindow.loadURL(url.format({
+      pathname: path.join(__dirname, './build/index.html'), protocol: 'file:', slashes: true
+    }))
+  }
+  // mainWindow.loadURL('http://localhost:3000/')
   mainWindow.on('closed', function () {
     mainWindow = null
   })
