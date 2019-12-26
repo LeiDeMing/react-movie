@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "main": "main.js",
+  "homepage": ".",
   "dependencies": {
     "@babel/core": "7.4.3",
     "@svgr/webpack": "4.1.0",
@@ -150,7 +151,7 @@
     ]
   },
   "devDependencies": {
-    "electron": "^6.0.10",
+    "electron": "^6.1.7",
     "lodash": "^4.17.15"
   }
 }

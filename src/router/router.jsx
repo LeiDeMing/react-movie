@@ -9,8 +9,8 @@ const router = () => {
             <Switch>
                 <Route path='/gufen' component={GufenLayout}></Route>
                 <Route path='/qyn' component={Qyn}></Route>
-                {/* <Redirect from='/' to='/gufen'></Redirect> */}
-                <Redirect from='/' to='/qyn'></Redirect>
+                <Redirect from='/' to='/gufen'></Redirect>
+                {/* <Redirect from='/' to='/qyn'></Redirect> */}
             </Switch>
         </HashRouter>
     )
