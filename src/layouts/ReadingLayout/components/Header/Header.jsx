@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
-import Table from 'rc-table';
-import { Menu, Icon } from 'antd';
+import Table from 'rc-table'
+import { Menu, Icon } from 'antd'
+import Axios from 'axios'
 import '@/common/scss/basic.scss'
 const { SubMenu } = Menu;
 export default class Header extends PureComponent {
@@ -62,6 +63,7 @@ export default class Header extends PureComponent {
     }
 
     componentWillMount() {
+        
     }
 
     render() {
