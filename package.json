@@ -153,7 +153,7 @@
   },
   "devDependencies": {
     "cross-env": "^6.0.3",
-    "electron": "^6.1.7",
+    "electron": "^18.3.7",
     "lodash": "^4.17.15"
   }
 }
